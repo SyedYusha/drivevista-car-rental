@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<header class="header">
+  <div class="container header__container">
+
+    <!-- Logo -->
+    <a href="#home" class="header__logo">
+      <img
+        src="assets/images/drivevista-logo.png"
+        alt="DriveVista - Drive Beyond Ordinary"
+      />
+    </a>
+
+    <!-- Navigation -->
+    <nav class="header__nav" id="primary-navigation">
+      <a href="#home" class="header__link active">
+        <i class="bx bx-home"></i>
+        <span>Home</span>
+      </a>
+
+      <a href="#ride" class="header__link">
+        <i class="bx bx-car"></i>
+        <span>Ride</span>
+      </a>
+
+      <a href="#services" class="header__link">
+        <i class="bx bx-wrench"></i>
+        <span>Services</span>
+      </a>
+
+      <a href="#about" class="header__link">
+        <i class="bx bx-info-circle"></i>
+        <span>About</span>
+      </a>
+
+      <a href="#reviews" class="header__link">
+        <i class="bx bx-star"></i>
+        <span>Reviews</span>
+      </a>
+    </nav>
+
+    <!-- Authentication Buttons -->
+    <div class="header__actions">
+      <a href="#signup" class="btn btn--outline">
+        Sign Up
+      </a>
+
+      <a href="#login" class="btn btn--primary">
+        Login
+        <i class="bx bx-right-arrow-alt"></i>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button
+      class="header__menu-toggle"
+      id="menu-toggle"
+      aria-label="Open navigation menu"
+      aria-controls="primary-navigation"
+      aria-expanded="false"
+      type="button"
+    >
+      <i class="bx bx-menu"></i>
+    </button>
+
+  </div>
+</header>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+
+/* 12. Responsive Adjustments */
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 1.8rem;
+    --navbar-height: 7rem;
+  }
+
+  .section {
+    padding-block: var(--space-10);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --container-padding: 1.6rem;
+  }
+}
+
+/* 13. Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
