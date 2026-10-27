@@ -1,30 +1,231 @@
+/* DriveVista responsive layout
+   Matches the existing index.html selectors and preserves the desktop theme. */
 
-/* 12. Responsive Adjustments */
-@media (max-width: 768px) {
-  :root {
-    --container-padding: 1.8rem;
-    --navbar-height: 7rem;
-  }
+/* Large desktop: keep the service fleet in a deliberate 3-column grid. */
+.service .service_container {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+.service .service_container .service_card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.service .service_container .service_card .service_card-img {
+  overflow: hidden;
+}
+.service .service_container .service_card .serviceCardIcon {
+  flex-wrap: wrap;
+  gap: .4rem .8rem;
+}
+.service .service_container .service_card .service_card-btn {
+  margin-top: auto;
+}
+.home .homeText,
+.home .registrationForm-Container {
+  min-width: 0;
+}
+.home .registrationForm-Container form {
+  max-width: calc(100% - 20rem);
+}
 
-  .section {
-    padding-block: var(--space-10);
+/* 1366px and below */
+@media (max-width: 1366px) {
+  .section { padding-inline: 6rem; }
+  header { padding-inline: 6rem; }
+  header .navLogo img { width: 21rem; }
+  header .navLinks a { padding-inline: 1rem; font-size: 1.5rem; }
+  header .navBtn a { padding-inline: 1.4rem; }
+  .home { background-position: center right; }
+  .home .registrationForm-Container form {
+    left: 6rem;
+    max-width: calc(100% - 12rem);
   }
 }
 
-@media (max-width: 480px) {
-  :root {
-    --container-padding: 1.6rem;
+/* Compact laptop / tablet landscape */
+@media (max-width: 1100px) {
+  :root { --navbar-height: 7.4rem; }
+  header {
+    padding-inline: 3.2rem;
+    gap: 1.8rem;
   }
+  header .navLogo img { width: 18rem; }
+  header .menuIcon { display: block; order: 3; flex: 0 0 auto; }
+  header .navBtn { display: flex; gap: .6rem; margin-left: auto; }
+  header .navBtn a { white-space: nowrap; font-size: 1.4rem; }
+  header .navLinks {
+    display: none;
+    position: absolute;
+    top: calc(100% + .6rem);
+    left: 2.4rem;
+    right: 2.4rem;
+    padding: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .3rem;
+    background: rgba(248, 250, 252, .98);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    max-height: calc(100dvh - var(--navbar-height) - 2rem);
+    overflow-y: auto;
+  }
+  header .navLinks.is-open { display: flex; }
+  header .navLinks a {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem 1.4rem;
+    border-radius: var(--radius-md);
+    font-size: 1.6rem;
+  }
+  header .navLinks a::after { display: none; }
+  header .navLinks a:hover { background: var(--color-surface-alt); }
+  .section { padding-inline: 4rem; }
+  .home {
+    min-height: 78rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, .75fr);
+    padding-top: calc(var(--navbar-height) + 6rem);
+    padding-bottom: 23rem;
+    gap: 2rem;
+  }
+  .home .homeText h1 { font-size: clamp(3.2rem, 4.2vw, 4.8rem); }
+  .home .homeText p { font-size: 1.6rem; }
+  .home .registrationForm-Container form {
+    left: 4rem;
+    right: 4rem;
+    bottom: 4rem;
+    max-width: none;
+  }
+  .ride .ride_container { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .service .service_container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about .about_container { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 2rem; }
+  .about .about_container .about-img img { width: 100%; }
+  .about .about_container .about-text { height: 46rem; }
+  .about .about_container .about-text .suppContnet dd br { display: none; }
+  .reveiw .reveiw_container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .reveiw .reveiw_container .reveiw-card:last-child { grid-column: 1 / -1; }
 }
 
-/* 13. Reduced Motion Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+/* Tablet portrait: stack hero and about content; keep cards readable. */
+@media (max-width: 820px) {
+  .section { padding-inline: 3rem; }
+  .home {
+    min-height: auto;
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: calc(var(--navbar-height) + 6rem);
+    padding-bottom: 4rem;
+    background-position: center;
+    gap: 3rem;
   }
+  .home .homeText { max-width: 70rem; }
+  .home .homeText h1,
+  .home .homeText p { margin-inline: 0; }
+  .home .registrationForm-Container { width: 100%; }
+  .home .registrationForm-Container form {
+    position: static;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+  }
+  .home .registrationForm-Container .registrationFormBTN { width: 100%; align-self: end; }
+  .ride .ride_container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .service .service_container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .service .service_container .service_card .service_card-img { height: 19rem; }
+  .service .service_container .serviceCardIcon p { font-size: 1.35rem; }
+  .about .about_container { grid-template-columns: minmax(0, 1fr); }
+  .about .about_container .about-img { max-width: 68rem; margin-inline: auto; width: 100%; }
+  .about .about_container .about-img img { width: 100%; }
+  .about .about_container .about-text { height: auto; overflow: visible; }
+  .about .about_container .about-text .suppContnet .suppContentCard { margin-block: 1.5rem; }
+  .reveiw .reveiw_container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .copyright { gap: 2rem; }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  :root { --navbar-height: 6.8rem; }
+  .section { padding-block: 5rem; padding-inline: 1.8rem; }
+  header { padding-inline: 1.5rem; gap: .8rem; }
+  header .navLogo img { width: clamp(11.5rem, 36vw, 15rem); }
+  header .navBtn { gap: .4rem; }
+  header .navBtn a { padding: .8rem .9rem; font-size: 1.2rem; }
+  header .menuIcon i { font-size: 2.2rem; padding: .4rem; }
+  header .navLinks { left: 1.4rem; right: 1.4rem; }
+  .home {
+    padding-top: calc(var(--navbar-height) + 4.5rem);
+    padding-bottom: 3rem;
+    gap: 2.5rem;
+  }
+  .home .homeText h1 {
+    font-size: clamp(2.8rem, 8vw, 4rem);
+    line-height: 1.2;
+  }
+  .home .homeText h1 span { font-size: clamp(1.9rem, 5.4vw, 2.6rem); }
+  .home .homeText p { font-size: 1.5rem; line-height: 1.65; }
+  .home .homeText p br { display: none; }
+  .home .registrationForm-Container form {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 1.5rem;
+  }
+  .home .registrationForm-Container .input-box input { min-height: 4.4rem; }
+  .home .registrationForm-Container .registrationFormBTN { min-height: 4.6rem; }
+  .ride .ride_container,
+  .service .service_container,
+  .reveiw .reveiw_container { grid-template-columns: minmax(0, 1fr); }
+  .ride .ride_container { gap: 1.5rem; }
+  .ride .ride_container .ride_bxes { padding: 1.6rem; }
+  .ride .ride_container .ride_bxes p { font-size: 1.5rem; }
+  .service .service_container { gap: 1.8rem; }
+  .service .service_container .service_card { padding: 1.3rem; }
+  .service .service_container .service_card .service_card-img { height: clamp(17rem, 55vw, 25rem); }
+  .service .service_container .service_card h3 { font-size: 2.2rem; }
+  .service .service_container .serviceCardIcon { flex-wrap: wrap; gap: .6rem; }
+  .service .service_container .serviceCardIcon p { font-size: 1.4rem; }
+  .about .about_container { gap: 1.8rem; }
+  .about .about_container .about-text { height: auto; overflow: visible; }
+  .about .about_container .about-text p { font-size: 1.5rem; }
+  .about .about_container .about-text .suppContnet .suppContentCard { padding: 1.5rem; }
+  .about .about_container .about-text .suppContnet dt { font-size: 1.8rem; }
+  .about .about_container .about-text .suppContnet dd { font-size: 1.5rem; }
+  .reveiw .reveiw_container { margin-top: 3rem; gap: 1.5rem; }
+  .reveiw .reveiw_text span { font-size: 1.4rem; }
+  .reveiw .reveiw_text h1 { font-size: clamp(2.6rem, 7.5vw, 3.6rem); }
+  .newsLetter { text-align: center; }
+  .newsLetter h2 { font-size: clamp(2.3rem, 7vw, 3.2rem); }
+  .newsLetter .newsLetterForm { width: 100%; max-width: 42rem; gap: .6rem; }
+  .newsLetter .newsLetterForm input { min-width: 0; padding-inline: 1rem; }
+  .newsLetter .newsLetterForm .newsLetterFormBtn { padding-inline: 1rem; white-space: nowrap; }
+  .copyright { flex-direction: column; text-align: center; padding: 2rem 1.6rem; }
+  .copyright p { font-size: 1.3rem; }
+  .copyright .socialMeiaDivision { display: flex; justify-content: center; gap: 1rem; }
+  .copyright .socialMeiaDivision a i { margin: 0; }
+}
+
+/* Smallest supported phones */
+@media (max-width: 360px) {
+  .section { padding-inline: 1.4rem; }
+  header { padding-inline: 1.1rem; }
+  header .navLogo img { width: 10.8rem; }
+  header .navBtn a { padding: .7rem .65rem; font-size: 1.1rem; }
+  .home .homeText h1 { font-size: 2.7rem; }
+  .home .homeText h1 span { font-size: 1.8rem; }
+  .newsLetter .newsLetterForm { padding: .3rem; }
+  .newsLetter .newsLetterForm .newsLetterFormBtn { padding-inline: .7rem; font-size: 1.25rem; }
+}
+
+/* Avoid horizontal overflow caused by long content or grid children. */
+@media (max-width: 820px) {
+  body { overflow-x: hidden; }
+  .section,
+  .home,
+  .ride_container,
+  .service_container,
+  .about_container,
+  .reveiw_container,
+  .newsLetter,
+  .copyright { min-width: 0; }
+  .service .service_container .service_card > p { max-width: 100%; }
 }

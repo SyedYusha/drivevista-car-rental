@@ -1,0 +1,37 @@
+1920 x 1080 --> 
+*- need to work in home section headings and paragraph
+*- Services section cards in 3*3	
+*- newsletter set
+
+1366 x 768 
+*- All set
+
+1280 x 800
+*- Header problem need some spaces, buttons are out of order
+
+1024 x 768
+
+*- Header problem need some spaces, buttons are out of order
+*- Home section need to set text and form
+*- Ride card section needs to get some css relate position
+*- About section image is out of order
+*- Footer icons and text responsive
+
+820 x 1180 / 768 x 1024
+*- Header problem need some spaces, buttons are out of order and logo image is in responsive and in this size navigation drop down
+*- Home section need to set text and form
+*- Ride section card text size
+*- services card need image size to set
+*- About section image is out of order
+*- customer cards need order
+*- footer section order
+
+430 x 932 / 390 x 844 / 375 x 667 / 320 x 568
+*- Header responsive and make it for mobile dropdown
+*- Main home section text & registration form
+*- Rides card text sizes set
+*- Services section cards alignment
+*- About section need complete set
+*- cusotmer section main text sizing
+*- newsletter sizing
+*- copy right section alignment
